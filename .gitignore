@@ -1,2 +1,10 @@
 .env
 airflow.cfg
+
+# Python cache directories
+__pycache__/
+*.py[cod]
+
+# Log files
+logs/
+*.log
