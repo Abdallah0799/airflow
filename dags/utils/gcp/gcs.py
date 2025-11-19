@@ -8,10 +8,9 @@ from utils.gcp import BaseGCP
 
 
 class GCS(BaseGCP):
-    def __init__(self, service_account_infos: str, scopes: List[str] = None) -> None:
+    def __init__(self, service_account_infos: str = None, scopes: List[str] = None) -> None:
         super().__init__(service_account_infos, scopes)
-        self.client = storage.Client(credentials=self.credentials,
-                                     project=self.credentials.project_id)
+        self.client = storage.Client(credentials=self.credentials)
 
     def upload(self, bucket_name: str, file_name: str, file_content: bytes) -> str:
         bucket = self.client.bucket(bucket_name)
