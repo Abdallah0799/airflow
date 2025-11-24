@@ -20,7 +20,7 @@ with DAG(
     DAG_ID,
     default_args=default_args,
     tags=["sncf"],
-    schedule_interval="* 6 * * *",
+    schedule="* 6 * * *",
     start_date=pendulum.now(tz=pendulum.timezone(TIMEZONE)).subtract(days=1),
     max_active_runs=1,
 ) as dag:

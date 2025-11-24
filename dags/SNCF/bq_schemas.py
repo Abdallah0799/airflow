@@ -1,12 +1,10 @@
 from google.cloud import bigquery
 
 sncf_cleanliness = [
-        bigquery.SchemaField("id", "INT64"),
-        bigquery.SchemaField("created_at", "TIMESTAMP"),
-        bigquery.SchemaField("updated_at", "TIMESTAMP"),
-        bigquery.SchemaField("order_date", "TIMESTAMP"),
-        bigquery.SchemaField("status", "STRING"),
-        bigquery.SchemaField("customer_id", "INT64"),
-        bigquery.SchemaField("amount", "FLOAT64"),
-        bigquery.SchemaField("total_items", "INT64")
+        bigquery.SchemaField("mois", "STRING"),
+        bigquery.SchemaField("uic", "STRING"),
+        bigquery.SchemaField("nom_gare", "STRING"),
+        bigquery.SchemaField("nombre_de_non_conformites", "INT64"),
+        bigquery.SchemaField("nombre_d_observations", "INT64"),
+        bigquery.SchemaField("taux_de_conformite", "FLOAT64")
     ]
