@@ -237,6 +237,9 @@ services:
         echo
         ls -la /opt/airflow/{logs,dags,plugins,config}
         echo
+        echo "Adding default connections..."
+        /opt/airflow/scripts/airflow-init-connections.sh
+        echo
         echo "Running airflow config list to create default config file if missing."
         echo
         /entrypoint airflow config list >/dev/null

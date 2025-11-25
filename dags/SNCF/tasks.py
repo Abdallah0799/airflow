@@ -74,6 +74,7 @@ def extract_and_transform():
 
 load_to_bigquery = GCSToBigQueryOperator(
     task_id="load_to_bigquery",
+    gcp_conn_id="gcp_airflow",
     bucket=BUCKET_NAME,
     source_objects=["transform_{BUCKET_NAME}_{TARGET_FILE_NAME}.csv"],
     destination_project_dataset_table=f"{DATASET_ID}.{TABLE_ID}",
