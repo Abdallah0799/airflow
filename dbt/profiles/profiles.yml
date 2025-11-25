@@ -1,0 +1,25 @@
+dbt_airflow:
+  outputs:
+    dev:
+      dataset: warehouse_dev
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /opt/airflow/dbt/bq_key.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: airflow-478417
+      threads: 4
+      type: bigquery
+    prod:
+      dataset: warehouse
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /opt/airflow/dbt/bq_key.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: airflow-478417
+      threads: 4
+      type: bigquery
+  target: dev
