@@ -14,7 +14,7 @@ Extracted data is stored and processed using **Google Cloud Platform (GCP)**:
 
 - **Cloud Storage** → Raw data (CSV files, logs, etc.)
 - **BigQuery** → Cleaned and transformed analytics-ready tables
--  **BigQuery** → Visualization
+-  **Looker Studio** → Visualization
 
 Airflow handles ingestion, transformation, and orchestration through DAGs defined in this project.
 
