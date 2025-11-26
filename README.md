@@ -1,7 +1,7 @@
 # Airflow (WIP 🏗)
 
 This repository contains a standard **Apache Airflow** application packaged with **Docker** and **Docker Compose**.  
-It includes a custom Airflow image.
+It includes a custom Airflow image. It uses the Celery Executor.
 
 It will be used to orchestrate various data workflows.
 
