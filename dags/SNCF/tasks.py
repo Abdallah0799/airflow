@@ -19,27 +19,34 @@ TABLE_ID = "proprete_gare"
 
 
 def standardize_column_names(name: str) -> str:
-    # 1) Normalise pour supprimer les accents
+    """
+    Standardizes a column name by removing accents, converting to snake_case,
+    and keeping only alphanumeric characters + underscores.
+
+    Steps:
+        1) Normalize Unicode to remove accents
+        2) Replace spaces, hyphens, and separators with underscores
+        3) Add underscores between camelCase / PascalCase transitions
+        4) Convert to lowercase
+        5) Remove non-alphanumeric characters (except _)
+        6) Collapse multiple underscores
+        7) Strip leading/trailing underscores
+    """
+    # 1)
     name = unicodedata.normalize('NFKD', name)
     name = ''.join(c for c in name if not unicodedata.combining(c))
-
-    # 2) Remplace espaces, tirets et séparateurs par _
+    # 2)
     name = re.sub(r'[\s\-]+', '_', name)
-
-    # 3) Ajoute un underscore avant les majuscules (camelCase / PascalCase)
+    # 3)
     name = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', name)
     name = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', name)
-
-    # 4) Convertit en minuscules
+    # 4)
     name = name.lower()
-
-    # 5) Supprime les caractères non alphanumériques sauf _
+    # 5)
     name = re.sub(r'[^a-z0-9_]', '', name)
-
-    # 6) Évite les doublons de underscores
+    # 6)
     name = re.sub(r'_+', '_', name)
-
-    # 7) Supprime _ au début/fin
+    # 7)
     return name.strip('_')
 
 
