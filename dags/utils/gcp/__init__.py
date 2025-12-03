@@ -5,8 +5,17 @@ from google.cloud.exceptions import NotFound
 
 
 class BaseGCP():
+    """
+    Base GCP class that handles authentication for Google Cloud Platform services.
+    """
     def __init__(self, service_account_infos: str = None, scopes: List[str] = None) -> None:
-        # Connection to the BigQuery Admin Service Account
+        """
+        Initialize GCP credentials.
+
+        Args:
+            service_account_infos (dict, optional): Service account JSON as a Python dict.
+            scopes (List[str], optional): List of OAuth scopes.
+        """
         try:
             if service_account_infos:
                 self.credentials = service_account.Credentials.from_service_account_info(
