@@ -80,4 +80,4 @@ Additionally, place your **GCP service account `.json` file** at the project roo
 docker compose up --build -d
 ```
 
-Open the Airflow web UI at the configured AIRFLOW__WEBSERVER__BASE_URL (default: http://airflow.colibrys.com:8080).
+Open the Airflow web UI at the configured AIRFLOW__WEBSERVER__BASE_URL (default: http://localhost:8080).
